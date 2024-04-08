@@ -28,7 +28,8 @@ void listMedian (const std::vector<int> * instructions){
         }
     }
     std::cout<<std::endl;
-     for(auto i=lst.begin();i!=lst.end();++i){
+    std::cout<<std::endl;
+     for(auto i=medianlst.begin();i!=medianlst.end();++i){
        std::cout<<*i<<" ";
     }
  }
