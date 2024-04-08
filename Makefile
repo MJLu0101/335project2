@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -g -Wall -O2
 
 PROG ?= main
-OBJS = myVector.o myList.o Main.o
+OBJS = myVector.o myList.o myHeap.o Main.o
 
 all: $(PROG)
 

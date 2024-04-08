@@ -6,6 +6,7 @@
 #include <string>
 #include "myVector.hpp"
 #include "myList.hpp"
+#include "myHeap.hpp"
 
 int main(){
     std::string inputfile, line;
@@ -39,5 +40,6 @@ int main(){
     // }
     vectorMedian(x);
     listMedian(x);
+    heapMedian(x);
     return 0;
 }
