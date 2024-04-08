@@ -7,7 +7,7 @@ void heapMedian (const std::vector<int> * instructions){
         if(*i==-1){
             if(!max.empty()&&!min.empty()){
                 if(max.size()==min.size()){
-                    int median=(max.top()+min.top())/2;
+                    int median=max.top();
                     medians.push_back(median);
                     max.pop();
                 }

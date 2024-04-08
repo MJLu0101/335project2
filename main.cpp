@@ -38,8 +38,8 @@ int main(){
     // for(int i=0;i<x.size();i++){
     //    std::cout<<x[i]<<" ";
     // }
-    vectorMedian(x);
-    listMedian(x);
+    //vectorMedian(x);
+    //listMedian(x);
     heapMedian(x);
     return 0;
 }
