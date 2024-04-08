@@ -36,10 +36,6 @@ void heapMedian (const std::vector<int> * instructions){
             min.pop();
         }
     }
-    std::cout<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<medians.size();
-    std::cout<<std::endl;
     for(auto i=medians.begin();i!=medians.end();++i){
        std::cout<<*i<<" ";
     }
