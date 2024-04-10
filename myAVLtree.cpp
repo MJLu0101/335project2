@@ -23,6 +23,12 @@ void treeMedian (const std::vector<int> * instructions){
                     largecount--;
                 }
             }
+            else if(!smallTree.isEmpty()){
+                median=smallTree.findMax();
+                smallTree.remove(smallTree.findMax());
+                std::cout<<median<<" ";
+                smallcount--;
+            }
 
         }
         else{
