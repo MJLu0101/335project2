@@ -7,6 +7,7 @@
 #include "myVector.hpp"
 #include "myList.hpp"
 #include "myHeap.hpp"
+#include "myAVLtree.hpp"
 
 int main(){
     std::string inputfile, line;
@@ -40,6 +41,7 @@ int main(){
     // }
     //vectorMedian(x);
     //listMedian(x);
-    heapMedian(x);
+    //heapMedian(x);
+    treeMedian(x);
     return 0;
 }
