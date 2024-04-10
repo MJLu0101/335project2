@@ -34,6 +34,19 @@ void treeMedian (const std::vector<int> * instructions){
                 largeTree.insert(*i);
                 largecount++;
             }
+        // Rebalance the trees if necessary
+            if(smallcount > largecount + 1){
+                largeTree.insert(smallTree.findMax());
+                smallTree.remove(smallTree.findMax());
+                smallcount--;
+                largecount++;
+            }
+            else if(largecount > smallcount){
+                smallTree.insert(largeTree.findMin());
+                largeTree.remove(largeTree.findMin());
+                smallcount++;
+                largecount--;
+            }
         }
     }
 }
