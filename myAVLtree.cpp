@@ -12,13 +12,13 @@ void treeMedian (const std::vector<int> * instructions){
             if(!smallTree.isEmpty()&&!largeTree.isEmpty()){
                 if(smallcount>=largecount){
                     median=smallTree.findMax();
-                    smallTree.remove(smallTree.findMax());
+                    smallTree.remove(median);
                     std::cout<<median<<" ";
                     smallcount--;
                 }
                 else {
                     median=largeTree.findMin();
-                    largeTree.remove(largeTree.findMin());
+                    largeTree.remove(median);
                     std::cout<<median<<" ";
                     largecount--;
                 }
@@ -34,19 +34,19 @@ void treeMedian (const std::vector<int> * instructions){
                 largeTree.insert(*i);
                 largecount++;
             }
+        }
         // Rebalance the trees if necessary
-            if(smallcount > largecount + 1){
-                largeTree.insert(smallTree.findMax());
-                smallTree.remove(smallTree.findMax());
-                smallcount--;
-                largecount++;
-            }
-            else if(largecount > smallcount){
-                smallTree.insert(largeTree.findMin());
-                largeTree.remove(largeTree.findMin());
-                smallcount++;
-                largecount--;
-            }
+        if(smallcount > largecount + 1){
+            largeTree.insert(smallTree.findMax());
+            smallTree.remove(smallTree.findMax());
+            smallcount--;
+            largecount++;
+        }
+        else if(largecount > smallcount){
+            smallTree.insert(largeTree.findMin());
+            largeTree.remove(largeTree.findMin());
+            smallcount++;
+            largecount--;
         }
     }
 }
