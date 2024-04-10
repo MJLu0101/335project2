@@ -42,7 +42,7 @@ void treeMedian (const std::vector<int> * instructions){
             smallcount--;
             largecount++;
         }
-        else if(largecount > smallcount){
+        else if(largecount > smallcount+1){
             smallTree.insert(largeTree.findMin());
             largeTree.remove(largeTree.findMin());
             smallcount++;
