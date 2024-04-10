@@ -9,27 +9,20 @@ void treeMedian (const std::vector<int> * instructions){
     int median;
     for(auto i=(*instructions).begin();i!=(*instructions).end();++i){
         if(*i==-1){
-            if(!smallTree.isEmpty()&&!largeTree.isEmpty()){
-                if(smallcount>=largecount){
+            if(!smallTree.isEmpty()){
+                //if(smallcount>=largecount){
                     median=smallTree.findMax();
                     smallTree.remove(median);
                     std::cout<<median<<" ";
                     smallcount--;
-                }
-                else {
-                    median=largeTree.findMin();
-                    largeTree.remove(median);
-                    std::cout<<median<<" ";
-                    largecount--;
-                }
+                //}
+            //     else {
+            //         median=largeTree.findMin();
+            //         largeTree.remove(median);
+            //         std::cout<<median<<" ";
+            //         largecount--;
+            //     }
             }
-            else if(!smallTree.isEmpty()){
-                median=smallTree.findMax();
-                smallTree.remove(smallTree.findMax());
-                std::cout<<median<<" ";
-                smallcount--;
-            }
-
         }
         else{
             if(smallTree.isEmpty()||*i<=smallTree.findMax()){
@@ -42,17 +35,19 @@ void treeMedian (const std::vector<int> * instructions){
             }
         }
         // Rebalance the trees if necessary
-        if(smallcount > largecount + 1){
-            largeTree.insert(smallTree.findMax());
-            smallTree.remove(smallTree.findMax());
-            smallcount--;
-            largecount++;
-        }
-        else if(largecount > smallcount+1){
-            smallTree.insert(largeTree.findMin());
-            largeTree.remove(largeTree.findMin());
+        if(smallcount <largecount){
+            int x=largeTree.findMin();
+            largeTree.remove(x);
+            smallTree.insert(x);
             smallcount++;
             largecount--;
+        }
+        else if(smallcount >=largecount+1){
+            int x=smallTree.findMax();
+            largeTree.insert(x);
+            smallTree.remove(x);
+            smallcount--;
+            largecount++;
         }
     }
 }
