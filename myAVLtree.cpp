@@ -12,13 +12,15 @@ void treeMedian (const std::vector<int> * instructions){
             if(!smallTree.isEmpty()&&!largeTree.isEmpty()){
                 if(smallcount>=largecount){
                     median=smallTree.findMax();
-                    smallTree.remove(median);
-                    cout<<median<<" ";
+                    smallTree.remove(smallTree.findMax());
+                    std::cout<<median<<" ";
+                    smallcount--;
                 }
-                else if(smallcount<largecount){
+                else {
                     median=largeTree.findMin();
-                    largeTree.remove(median);
-                    cout<<median<<" ";
+                    largeTree.remove(largeTree.findMin());
+                    std::cout<<median<<" ";
+                    largecount--;
                 }
             }
 
