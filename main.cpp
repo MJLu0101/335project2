@@ -39,12 +39,19 @@ int main(){
     // for(int i=0;i<x.size();i++){
     //    std::cout<<x[i]<<" ";
     // }
-    std::cout<<"vector: "<<std::endl;
-    vectorMedian(x);
+    // std::cout<<"vector: "<<std::endl;
+    // vectorMedian(x);
+    // std::cout<<std::endl;
+
+     std::cout<<"list: "<<std::endl;
+    listMedian(x);
     std::cout<<std::endl;
-    //listMedian(x);
-    //heapMedian(x);
-    std::cout<<"tree: "<<std::endl;
-    treeMedian(x);
-    return 0;
+
+    // std::cout<<"heap: "<<std::endl;
+    // heapMedian(x);
+    // std::cout<<std::endl;
+
+    // std::cout<<"tree: "<<std::endl;
+    // treeMedian(x);
+     return 0;
 }

@@ -141,7 +141,7 @@ void treeMedian(const std::vector<int> *instructions) {
     std::vector<int> medians;
 
     //time: beging:
-    auto start = std::chrono::high_resolution_clock::now();
+   // auto start = std::chrono::high_resolution_clock::now();
     // Iterate through the instructions vector.
     for (auto i = (*instructions).begin(); i != (*instructions).end(); ++i) {
         // If the instruction is -1, it indicates a request to calculate and remove the median.
@@ -203,9 +203,9 @@ void treeMedian(const std::vector<int> *instructions) {
             }
         }
     }
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::micro> elapsed = end - start;
-    std::cout << "Execution time for treeMedian: " << elapsed.count() << " microseconds\n";
+    // auto end = std::chrono::high_resolution_clock::now();
+    // std::chrono::duration<double, std::micro> elapsed = end - start;
+    // std::cout << "Execution time for treeMedian: " << elapsed.count() << " microseconds\n";
 
     // Output the calculated medians.
     for (auto i = medians.begin(); i != medians.end(); ++i) {

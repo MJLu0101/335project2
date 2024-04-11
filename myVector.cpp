@@ -13,7 +13,7 @@ void vectorMedian(const std::vector<int>* instructions) {
     std::vector<int> vec; // Vector to store elements
     std::vector<int> medianvec; // Vector to store medians
     // Start timing
-    auto start = std::chrono::high_resolution_clock::now();
+    //auto start = std::chrono::high_resolution_clock::now();
     // Iterate through the instructions vector
     for (int i = 0; i < instructions->size(); i++) {
         // If the instruction is -1, it indicates a request to calculate and remove the median
@@ -39,10 +39,10 @@ void vectorMedian(const std::vector<int>* instructions) {
         }
     }
     // Stop timing
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::micro> elapsed = end - start;
-    std::cout << "Execution time for vectorMedian: " << elapsed.count() << " microseconds\n";
-    // Output the calculated medians
+    // auto end = std::chrono::high_resolution_clock::now();
+    // std::chrono::duration<double, std::micro> elapsed = end - start;
+    // std::cout << "Execution time for vectorMedian: " << elapsed.count() << " microseconds\n";
+   // Output the calculated medians
     for (int i = 0; i < medianvec.size(); i++) {
         std::cout << medianvec[i] << " ";
     }
