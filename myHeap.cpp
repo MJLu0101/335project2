@@ -9,17 +9,14 @@ cpp file
 #include "myHeap.hpp"
 
 // Function to calculate medians using two priority queues (max heap and min heap)
+#include "myHeap.hpp"
 void heapMedian(const std::vector<int>* instructions) {
-    // Initialize two priority queues: one for the maximum elements (max heap) and one for the minimum elements (min heap)
-    std::priority_queue<int> max;
-    std::priority_queue<int, std::vector<int>, std::greater<int>> min;
+    std::priority_queue<int> max; // Max heap to store larger elements
+    std::priority_queue<int, std::vector<int>, std::greater<int>> min; // Min heap to store smaller elements
+    std::vector<int> medians; // Vector to store calculated medians
 
-    // Vector to store the calculated medians
-    std::vector<int> medians;
-    //time 
-    //auto start = std::chrono::high_resolution_clock::now();
     // Iterate through the instructions vector
-    for (auto i = (*instructions).begin(); i != (*instructions).end(); ++i) {
+    for (auto i = instructions->begin(); i != instructions->end(); ++i) {
         // If the instruction is -1, it indicates a request to calculate and remove the median
         if (*i == -1) {
             // Check if both max heap and min heap are not empty
@@ -37,7 +34,7 @@ void heapMedian(const std::vector<int>* instructions) {
                 }
             }
         } else {
-            // For non-median instructions, insert the element into the appropriate heap
+            // Insert element into the appropriate heap based on its value
             if (max.empty() || *i <= max.top()) {
                 max.push(*i); // Insert into max heap if empty or element is smaller than current max
             } else {
@@ -54,9 +51,7 @@ void heapMedian(const std::vector<int>* instructions) {
             }
         }
     }
-    // auto end = std::chrono::high_resolution_clock::now();
-    // std::chrono::duration<double, std::micro> elapsed = end - start;
-    // std::cout << "Execution time for heapMedian: " << elapsed.count() << " microseconds\n";
+
     // Output the calculated medians
     for (auto i = medians.begin(); i != medians.end(); ++i) {
         std::cout << *i << " ";
