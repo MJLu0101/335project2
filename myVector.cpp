@@ -1,32 +1,37 @@
 #include "myVector.hpp"
-void vectorMedian (const std::vector<int> * instructions){
-    std::vector<int> vec;
-    std::vector<int> medianvec;
-    for(int i=0;i<instructions->size();i++){
-        if(((*instructions)[i])==-1){
-            if(!vec.empty()){
-                int medianIndex=vec.size()/2;
-                if(vec.size()%2==1){
+
+// Function to calculate medians using a vector
+void vectorMedian(const std::vector<int>* instructions) {
+    std::vector<int> vec; // Vector to store elements
+    std::vector<int> medianvec; // Vector to store medians
+
+    // Iterate through the instructions vector
+    for (int i = 0; i < instructions->size(); i++) {
+        // If the instruction is -1, it indicates a request to calculate and remove the median
+        if ((*instructions)[i] == -1) {
+            // Check if the vector is not empty
+            if (!vec.empty()) {
+                int medianIndex = vec.size() / 2; // Calculate the median index
+
+                // Check if the vector size is odd or even to determine median position
+                if (vec.size() % 2 == 1) {
+                    // For odd size, find the median and erase it from the vector
                     medianvec.push_back(vec[medianIndex]);
-                    vec.erase(vec.begin()+medianIndex);
-                }
-                else{//if median is odd
-                    medianvec.push_back(vec[medianIndex-1]);
-                    vec.erase(vec.begin()+medianIndex-1);
+                    vec.erase(vec.begin() + medianIndex);
+                } else {
+                    // For even size, find the median and erase it from the vector
+                    medianvec.push_back(vec[medianIndex - 1]);
+                    vec.erase(vec.begin() + medianIndex - 1);
                 }
             }
-        }
-        else{
-            auto lower=std::lower_bound(vec.begin(),vec.end(),(*instructions)[i]);
-            //auto uper=std::upper_bound(vec.begin(),vec.end(),(*instructions)[i]);
-            vec.insert(lower,(*instructions)[i]);
+        } else {
+            auto lower = std::lower_bound(vec.begin(), vec.end(), (*instructions)[i]); // Find lower bound for insertion
+            vec.insert(lower, (*instructions)[i]); // Insert element into the sorted position
         }
     }
-    // for(int i=0;i<vec.size();i++){
-    //    std::cout<<vec[i]<<" ";
-    // }
-    std::cout<<std::endl;
-     for(int i=0;i<medianvec.size();i++){
-       std::cout<<medianvec[i]<<" ";
+
+    // Output the calculated medians
+    for (int i = 0; i < medianvec.size(); i++) {
+        std::cout << medianvec[i] << " ";
     }
 }
