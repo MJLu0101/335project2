@@ -14,7 +14,8 @@ void listMedian(const std::vector<int>* instructions) {
     std::list<int> lst;
     std::list<int> medianlst;
     int medianIndex; // Index of the median element
-
+    // Start timing
+    auto start = std::chrono::high_resolution_clock::now();
     // Iterate through the instructions vector
     for (auto i = (*instructions).begin(); i != (*instructions).end(); ++i) {
         // If the instruction is -1, it indicates a request to calculate and remove the median
@@ -44,7 +45,9 @@ void listMedian(const std::vector<int>* instructions) {
             lst.insert(lower, *i); // Insert element into the sorted position
         }
     }
-
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::micro> elapsed = end - start;
+    std::cout << "Execution time for listMedian: " << elapsed.count() << " microseconds\n";
     // Output the calculated medians
     for (auto i = medianlst.begin(); i != medianlst.end(); ++i) {
         std::cout << *i << " ";
