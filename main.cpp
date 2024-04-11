@@ -43,15 +43,15 @@ int main(){
     // vectorMedian(x);
     // std::cout<<std::endl;
 
-     std::cout<<"list: "<<std::endl;
-    listMedian(x);
-    std::cout<<std::endl;
-
-    // std::cout<<"heap: "<<std::endl;
-    // heapMedian(x);
+    //  std::cout<<"list: "<<std::endl;
+    // listMedian(x);
     // std::cout<<std::endl;
 
-    // std::cout<<"tree: "<<std::endl;
-    // treeMedian(x);
+    std::cout<<"heap: "<<std::endl;
+    heapMedian(x);
+    std::cout<<std::endl;
+
+    std::cout<<"tree: "<<std::endl;
+    treeMedian(x);
      return 0;
 }

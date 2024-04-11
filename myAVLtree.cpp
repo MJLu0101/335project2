@@ -7,8 +7,6 @@ The myAVLtree
 cpp file
 */
 #include "myAVLtree.hpp"
-#include <iostream>
-#include <vector>
 
 // Function to calculate the height of a node
 int height(AvlNode *t) {
@@ -145,9 +143,8 @@ void treeMedian(const std::vector<int> *instructions) {
     // Iterate through the instructions vector.
     for (auto i = (*instructions).begin(); i != (*instructions).end(); ++i) {
         // If the instruction is -1, it indicates a request to calculate and remove the median.
-        if (*i == -1) {
+        if (*i == -1&&smallTree != nullptr) {
             // Check if the smallTree is not empty.
-            if (smallTree != nullptr) {
                 // Calculate the median as the maximum element in the smallTree.
                 int median = findMax(smallTree)->element;
 
@@ -169,8 +166,8 @@ void treeMedian(const std::vector<int> *instructions) {
                     largecount--;
                     smallcount++;
                 }
-            }
-        } else {
+        } 
+        else {
             // For non-median instructions, insert the element into the appropriate tree.
             if (smallTree == nullptr || *i <= findMax(smallTree)->element) {
                 // Insert into the smallTree if it's empty or the element is less than or equal to its maximum.
