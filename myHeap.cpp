@@ -18,45 +18,45 @@ void heapMedian(const std::vector<int>* instructions) {
     std::vector<int> medians;
 
     // Iterate through the instructions vector
-    for (auto i = (*instructions).begin(); i != (*instructions).end(); ++i) {
-        // If the instruction is -1, it indicates a request to calculate and remove the median
-        if (*i == -1) {
-            // Check if both max heap and min heap are not empty
-            if (!max.empty() && !min.empty()) {
-                // Check if the sizes of max heap and min heap are equal
-                if (max.size() == min.size()) {
+    for(auto i=(*instructions).begin();i!=(*instructions).end();++i){
+        if(*i==-1){ // If the instruction is -1, it indicates a request to calculate and remove the median
+             // Check if both max heap and min heap are not empty
+            if(!max.empty()&&!min.empty()){
+                if(max.size()==min.size()){// Check if the sizes of max heap and min heap are equal
                     // Median is the top element of max heap (larger half)
-                    int median = max.top();
+                    int median=max.top();
                     medians.push_back(median);
-                    max.pop(); // Remove median from max heap
-                } else {
-                    // If sizes are not equal, median is still from max heap, but don't remove it
-                    medians.push_back(max.top());
-                    // Do not pop to maintain the invariant that max heap has more elements than min heap
+                    max.pop();// Remove median from max heap
                 }
-            }
-        } else {
-            // For non-median instructions, insert the element into the appropriate heap
-            if (max.empty() || *i <= max.top()) {
-                max.push(*i); // Insert into max heap if empty or element is smaller than current max
-            } else {
-                min.push(*i); // Insert into min heap if element is larger than current max
-            }
+                else{
+                    medians.push_back(max.top());// If sizes are not equal, median is still from max heap, but don't remove it
+                    max.pop();
+                }
 
-            // Rebalance the heaps if necessary to maintain the invariant that max heap has more elements than min heap
-            if (max.size() > min.size() + 1) {
-                min.push(max.top()); // Move top element of max heap to min heap
-                max.pop(); // Remove element from max heap
-            } else if (max.size() < min.size()) {
-                max.push(min.top()); // Move top element of min heap to max heap
-                min.pop(); // Remove element from min heap
             }
         }
+        else{
+            // For non-median instructions, insert the element into the appropriate heap
+            if(max.empty()||*i<=max.top()){
+                max.push(*i);// Insert into max heap if empty or element is smaller than current max
+            }
+            else{
+                min.push(*i); // Insert into min heap if element is larger than current max
+            }
+        }
+        // Rebalance the heaps if necessary to maintain the invariant that max heap has more elements than min heap
+        if(max.size()>min.size()+1){
+            min.push(max.top());// Move top element of max heap to min heap
+            max.pop();// Remove element from max heap
+        }
+        else if(max.size()<min.size()){
+            max.push(min.top());// Move top element of min heap to max heap
+                min.pop(); // Remove element from min heap
+            min.pop();// Remove element from min heap
+        }
     }
-
     // Output the calculated medians
-    for (auto i = medians.begin(); i != medians.end(); ++i) {
-        std::cout << *i << " ";
+    for(auto i=medians.begin();i!=medians.end();++i){
+       std::cout<<*i<<" ";
     }
 }
-
