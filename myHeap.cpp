@@ -1,3 +1,11 @@
+/*
+Author: MINGJUN LU
+Course: CSCI-335
+Instructor: Justin Tojeira
+Assignment: Project 2
+The myHeap
+cpp file
+*/
 #include "myHeap.hpp"
 
 // Function to calculate medians using two priority queues (max heap and min heap)

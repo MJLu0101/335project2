@@ -1,3 +1,11 @@
+/*
+Author: MINGJUN LU
+Course: CSCI-335
+Instructor: Justin Tojeira
+Assignment: Project 2
+The myList
+cpp file
+*/
 #include "myList.hpp"
 
 // Function to calculate medians using a sorted list

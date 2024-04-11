@@ -1,3 +1,11 @@
+/*
+Author: MINGJUN LU
+Course: CSCI-335
+Instructor: Justin Tojeira
+Assignment: Project 2
+The myAVLtree
+cpp file
+*/
 #include "myAVLtree.hpp"
 #include <iostream>
 #include <vector>

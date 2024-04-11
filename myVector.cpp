@@ -1,3 +1,11 @@
+/*
+Author: MINGJUN LU
+Course: CSCI-335
+Instructor: Justin Tojeira
+Assignment: Project 2
+The myVector
+cpp file
+*/
 #include "myVector.hpp"
 
 // Function to calculate medians using a vector
