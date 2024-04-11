@@ -49,6 +49,7 @@ void heapMedian(const std::vector<int>* instructions) {
                 max.push(min.top()); // Move top element of min heap to max heap
                 min.pop(); // Remove element from min heap
             }
+            
         }
     }
 
