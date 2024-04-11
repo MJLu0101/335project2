@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
 #include <algorithm>
 void vectorMedian(const std::vector<int> * instructions);
 

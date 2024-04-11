@@ -1,4 +1,5 @@
 #include "myHeap.hpp"
+
 void heapMedian (const std::vector<int> * instructions){
     std::priority_queue<int>max;
     std::priority_queue<int, std::vector<int>, std::greater<int>>min;

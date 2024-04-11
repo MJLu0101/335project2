@@ -6,5 +6,6 @@
 #include <vector>
 #include <iterator>
 #include <queue>
+#include <chrono>
 void heapMedian (const std::vector<int> * instructions);
 #endif
